@@ -1,19 +1,27 @@
 
 import './App.css';
-import { useState } from "react";
+import { User } from "./User.js";
 
-function app () {
-  const age = 18;
-}
-
-if (age >= 18) {
-  return <h1> POIDE NA MAG LOVE LIFE</h1>
-}  else {
-  return <div className="App">
-  <h1>BAWAL PA MAG LOVE LIFE !</h1>
-  </div>
-}
-
-return <div className="App">
+function App () {
+  const plants = [
+    {planetName: "Mercury", isRockPlanet: true},
+    {planetName: "Venus", isRockPlanet: true},
+    {planetName: "Earth", isRockPlanet: true},
+    {planetName: "Mars", isRockPlanet: true},
+    {planetName: "Jupiter", isRockPlanet: false},
+    {planetName: "Saturn", isRockPlanet: false},
+    {planetName: "Neptune", isRockPlanet: false},
+    {planetName: "Uranus", isRockPlanet: false},
+    {planetName: "Pluto", isRockPlanet: true},
+  ];
   
-</div>
+  return (
+    <div className="App">
+      {planets.map((planet, key) => {
+        return <User key={key} name={planet.planetName} isRockPlanet={planet.isRockPlanet} />;
+      })}
+    </div>
+  );
+}
+
+export default App;
