@@ -1,13 +1,34 @@
-.App {
-  text-align: center;
-  margin-top: 20px;
+import "./App.css";
+import { useState } from "react";
+
+function App() {
+  const [numbr, setNumbr] = useState(1);
+
+  const increaseNumbr = () => {
+    setNumbr(numbr + 1);
+  };
+
+  const decreaseNumbr = () => {
+    setNumbr(numbr - 1);
+  };
+
+  const resetNumbr = () => {
+    setNumbr(0);
+  };
+
+  const doubleNumbr = () => {
+    setNumbr(numbr * 2);
+  };
+
+  return (
+    <div className="App">
+      <button onClick={increaseNumbr}> Increase Number </button>
+      <button onClick={decreaseNumbr}> Decrease Number </button>
+      <button onClick={resetNumbr}> Reset to Zero </button>
+      <button onClick={doubleNumbr}> Double Number </button>
+      <h1 className="name"> {numbr} </h1>
+    </div>
+  );
 }
 
-
-.User {
-  border: 1px solid #ccc;
-  padding: 10px;
-  margin: 5px;
-  width: 200px;
-  display: inline-block;
-}
+export default App;
